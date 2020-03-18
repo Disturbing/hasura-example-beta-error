@@ -1,0 +1,6 @@
+- args:
+    relationship: sixerConnect
+    table:
+      name: metc_player_assets
+      schema: sixergame
+  type: drop_relationship

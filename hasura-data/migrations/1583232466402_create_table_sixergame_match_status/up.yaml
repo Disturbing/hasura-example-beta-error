@@ -1,0 +1,11 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "sixergame"."match_status"("id" bigserial NOT NULL, "match_key"
+      text NOT NULL, "status" text NOT NULL, "start_date" timestamptz NOT NULL, "end_date"
+      timestamptz NOT NULL, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: match_status
+    schema: sixergame
+  type: add_existing_table_or_view

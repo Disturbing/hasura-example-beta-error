@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."real_wallet_transactions" ALTER COLUMN "quantity"
+      TYPE bigint;
+  type: run_sql

@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "sixergame"."metc_player_assets"("symbol" text NOT NULL, "sixer_id"
+      text NOT NULL, "is_free" boolean, PRIMARY KEY ("symbol") );
+  type: run_sql
+- args:
+    name: metc_player_assets
+    schema: sixergame
+  type: add_existing_table_or_view

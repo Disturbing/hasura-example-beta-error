@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: delete from sixergame.configurations where key = 'match_keyword_search';
+  type: run_sql

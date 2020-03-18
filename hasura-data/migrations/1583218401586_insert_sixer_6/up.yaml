@@ -1,0 +1,26 @@
+- args:
+    sql: INSERT INTO sixergame.sixers
+      (
+        id,
+        name,
+        player_cricket_api_key,
+        keeper,
+        batsman,
+        bowler,
+        batting_style,
+        bowling_style,
+        is_active
+      )
+      VALUES
+        (251,'Anukul Roy','an_roy',FALSE,TRUE,TRUE,'Left-Hand Bat','Slow Left-Arm Orthodox',TRUE),
+        (252,'Mayank Markande','my_markande',FALSE,TRUE,FALSE,'Right-hand batsman','Right-arm offbreak',TRUE),
+        (253,'Anmolpreet Singh','anm_singh',FALSE,TRUE,FALSE,'Right-Hand Bat','Right-arm medium',TRUE),
+        (254,'Kamlesh Nagarkoti','kam_nagarkoti',FALSE,FALSE,TRUE,'Right-Hand Bat','Right-Arm Fast',TRUE),
+        (255,'Shivam Mavi','s_mavi',FALSE,TRUE,TRUE,'Right-Hand Bat','Right-arm medium fast',TRUE),
+        (256,'Arshdeep Singh','ard_singh',FALSE,FALSE,TRUE,'Left-hand bat','Left-Arm Medium fast',TRUE),
+        (257,'Darshan Nalkande','dg_nalkande',FALSE,FALSE,TRUE,'Right-Hand Bat','Right Arm Medium',TRUE),
+        (258,'Harpreet Brar','har_brar',FALSE,TRUE,TRUE,'Right-Hand Bat','Right Arm Medium',TRUE),
+        (259,'M Siddharth','m_siddharth',FALSE,FALSE,TRUE,'Left-hand bat','Slow left-arm orthodox',TRUE),
+        (260,'Ishan Porel','i_porel',FALSE,FALSE,TRUE,'Right-Hand Bat','Right-arm medium',TRUE),
+        (261,'Tushar Deshpande','t_deshpande',FALSE,FALSE,TRUE,'Right-Hand Bat','Right-Arm Medium Fast',TRUE)
+  type: run_sql

@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  graphql-engine:
+    build: ./hasura-data/
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      WEB_API_HOST_NAME: host.docker.internal:3200
+      EVENT_WEBHOOK_ORDER_STATUS_CHANGE: http://host.docker.internal:3200/orders/statusChange
+volumes:
+  db_data:

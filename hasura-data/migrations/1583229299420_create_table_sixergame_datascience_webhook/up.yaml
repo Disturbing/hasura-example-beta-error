@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE "sixergame"."datascience_webhook"("id" serial NOT NULL, "body"
+      jsonb NOT NULL, "timestamp" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY
+      ("id") );
+  type: run_sql
+- args:
+    name: datascience_webhook
+    schema: sixergame
+  type: add_existing_table_or_view

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."free_wallet_transactions" ADD COLUMN "realized_pl"
+      float8 NULL;
+  type: run_sql

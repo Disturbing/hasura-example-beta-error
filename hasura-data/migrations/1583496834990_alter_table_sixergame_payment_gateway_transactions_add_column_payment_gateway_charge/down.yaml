@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" DROP COLUMN "payment_gateway_charge";
+  type: run_sql

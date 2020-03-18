@@ -1,0 +1,14 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"trending_players\" AS \n SELECT a.symbol
+      AS metc_symbol,\n    b.is_free,\n    b.sixer_id AS symbol,\n    count(*) AS
+      trade_count\n   FROM sixer_trades a,\n    sixergame.metc_player_assets b\n  WHERE
+      ((a.transact_time > (CURRENT_TIMESTAMP - '7 days'::interval day)) AND ((a.symbol)::text
+      = b.symbol))\n  GROUP BY a.symbol, b.is_free, b.sixer_id\n  ORDER BY (count(*))
+      DESC;"
+  type: run_sql
+- args:
+    name: trending_players
+    schema: public
+  type: add_existing_table_or_view

@@ -1,0 +1,10 @@
+- args:
+    custom_column_names:
+      security_type: securityType
+      shares_outstanding: sharesOutstanding
+    custom_root_fields: {}
+    table:
+      name: market_data_history
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

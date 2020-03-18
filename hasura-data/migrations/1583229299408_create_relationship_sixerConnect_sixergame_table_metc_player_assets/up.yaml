@@ -1,0 +1,13 @@
+- args:
+    name: sixerConnect
+    table:
+      name: metc_player_assets
+      schema: sixergame
+    using:
+      manual_configuration:
+        column_mapping:
+          sixer_id: player_cricket_api_key
+        remote_table:
+          name: sixers
+          schema: sixergame
+  type: create_object_relationship

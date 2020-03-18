@@ -1,0 +1,14 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"stockhistory\" AS \n SELECT d.sixer_id
+      AS symbol,\n    c.user_id,\n    d.is_free,\n    a.side,\n    a.quantity,\n    b.order_status,\n
+      \   b.trans_time,\n    b.last_px\n   FROM sixer_placed_orders a,\n    sixer_order_status
+      b,\n    sixer_users c,\n    sixergame.metc_player_assets d\n  WHERE ((d.symbol
+      = (a.symbol)::text) AND (a.user_id = c.id) AND (a.id = b.order_id))\n  ORDER
+      BY b.trans_time DESC;"
+  type: run_sql
+- args:
+    name: stockhistory
+    schema: public
+  type: add_existing_table_or_view

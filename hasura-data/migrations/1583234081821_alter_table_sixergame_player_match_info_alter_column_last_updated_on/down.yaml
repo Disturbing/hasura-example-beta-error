@@ -1,0 +1,15 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."player_match_info" ALTER COLUMN "last_updated_on"
+      TYPE timestamp with time zone;
+  type: run_sql
+- args:
+    custom_column_names:
+      player_key: playerKey
+    custom_root_fields: {}
+    table:
+      name: player_match_info
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

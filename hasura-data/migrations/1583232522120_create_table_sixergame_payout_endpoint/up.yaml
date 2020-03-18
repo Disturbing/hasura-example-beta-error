@@ -1,0 +1,10 @@
+- args:
+    sql: CREATE TABLE "sixergame"."payout_endpoint"("id" bigserial NOT NULL, "merchant"
+      text NOT NULL, "merchant_id" text NOT NULL, "user_id" bigint NOT NULL, "created_date"
+      timestamptz NOT NULL DEFAULT now(), "updated_date" timestamptz NOT NULL DEFAULT
+      now(), PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: payout_endpoint
+    schema: sixergame
+  type: add_existing_table_or_view

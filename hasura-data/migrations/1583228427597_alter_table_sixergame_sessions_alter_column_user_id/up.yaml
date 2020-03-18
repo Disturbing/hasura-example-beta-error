@@ -1,0 +1,16 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."sessions" ALTER COLUMN "user_id" TYPE int8;
+  type: run_sql
+- args:
+    custom_column_names:
+      created_at: createdAt
+      expires_at: expiresAt
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: sessions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

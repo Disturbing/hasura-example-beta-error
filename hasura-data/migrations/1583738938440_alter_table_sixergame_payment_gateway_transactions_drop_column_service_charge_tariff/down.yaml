@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ADD COLUMN "service_charge_tariff"
+      float8;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "service_charge_tariff"
+      DROP NOT NULL;
+  type: run_sql

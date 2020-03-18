@@ -1,0 +1,11 @@
+- args:
+    comment: bank_document to image
+    definition:
+      function:
+        name: bankdoc_base64
+        schema: sixergame
+    name: bank_document_image
+    table:
+      name: users
+      schema: sixergame
+  type: add_computed_field

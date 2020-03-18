@@ -1,0 +1,27 @@
+- args:
+    sql: INSERT INTO sixergame.sixers
+      (
+        id,
+        name,
+        player_cricket_api_key,
+        keeper,
+        batsman,
+        bowler,
+        batting_style,
+        bowling_style,
+        is_active)
+      VALUES
+      (272, 'Priyam Garg','c.player.priyam_garg.78edf',false,true,false,'Right-Hand Bat','', true ),
+      (273, 'Virat Singh','c.player.virat_singh.d9f8d',false,true,false,'Left-Hand Bat','', true ),
+      (274, 'Lalit Yadav','c.player.lalit_yadav.92b7b',false,true,true,'Right-Hand Bat','', true ),
+      (275, 'Anuj Rawat','c.player.anuj_rawat.2a356',true,true,false,'Left-Hand Bat','', true ),
+      (276, 'Shahbaz Ahmed','c.player.shahbaz_ahmed.0b3ce',false,true,true,'Left-Hand Bat','', true ),
+      (277, 'Prince Balwant Rai','c.player.prince_balwant_rai.193ac',false,true,true,'Right-Hand Bat','', true ),
+      (278, 'Mohsin Khan','c.player.mohsin_khan.a27a6',false,true,true,'Left-Hand Bat','', true ),
+      (279, 'Kartik Tyagi','c.player.kartik_tyagi.ab3be',false,false,true,'Right-Hand Bat','', true ),
+      (280, 'DR Deshmukh','c.player.dr_deshmukh.b1883',false,true,true,'Right-Hand Bat','', true ),
+      (281, 'Akash Singh','c.player.akash_singh.4dcfe',false,false,true,'Right-Hand Bat','', true ),
+      (282, 'Bavanaka Sandeep','c.player.bavanaka_sandeep.ee118',false,true,true,'','', true ),
+      (283, 'Abdul Samad','c.player.abdul_samad.ab6d6',false,true,true,'Right-Hand Bat','', true ),
+      (284, 'Ravi Bishnoi','c.player.ravi_bishnoi.8a9ae',false,false,true,'Right-Hand Bat','', true )      
+  type: run_sql

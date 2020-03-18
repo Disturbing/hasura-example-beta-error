@@ -1,0 +1,13 @@
+- args:
+    sql: CREATE TABLE "datascience"."current_position"("id" bigserial NOT NULL, "match_key"
+      text, "team_a" text, "team_a_name" text, "team_b" text, "team_b_name" text,
+      "innings" text, "batting_team" text, "bowling_team" text, "runs" text, "balls"
+      text, "run_rate" text, "striker" text, "nonstriker" text, "bowler" text, "status"
+      text, "status_overview" text, "format" text, "batting_team_round" text, "opponent_team_round"
+      text, "day" text, "timestamp" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY
+      ("id") );
+  type: run_sql
+- args:
+    name: current_position
+    schema: datascience
+  type: add_existing_table_or_view

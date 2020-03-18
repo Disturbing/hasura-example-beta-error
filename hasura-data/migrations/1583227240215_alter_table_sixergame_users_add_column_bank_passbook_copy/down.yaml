@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "sixergame"."users" DROP COLUMN "bank_passbook_copy";
+  type: run_sql

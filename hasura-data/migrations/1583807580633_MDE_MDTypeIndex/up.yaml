@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE INDEX mde_marketdata_type ON public.sixer_marketdata_elements (marketdata_type);
+  type: run_sql

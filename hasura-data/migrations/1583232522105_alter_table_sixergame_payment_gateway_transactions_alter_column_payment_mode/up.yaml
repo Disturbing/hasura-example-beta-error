@@ -1,0 +1,13 @@
+- args:
+    custom_column_names:
+      order_id: orderId
+      payment_mode: paymentMode
+      phone_number: phoneNumber
+      reference_id: referenceId
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

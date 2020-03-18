@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "sixergame"."datascience_webhook"
+  type: run_sql

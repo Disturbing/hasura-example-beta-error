@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "datascience"."fielding_historical_stats"("id" serial
+      NOT NULL, "match_key" text, "format" text, "player_key" text, "team_key" text, "team_name" text, "selected" text, "playing_xi" text, "team_round" text, "opponent_round_key" text, "batting_order" text, "innings" text, "winning_team" text, "keeper" text, "bowler" text, "batsman" text, "venue" text, "catches" text, "runouts" text, "stumped" text, "iso" text, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: fielding_historical_stats
+    schema: datascience
+  type: add_existing_table_or_view

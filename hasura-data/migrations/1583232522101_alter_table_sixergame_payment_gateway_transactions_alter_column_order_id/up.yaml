@@ -1,0 +1,9 @@
+- args:
+    custom_column_names:
+      order_id: orderId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

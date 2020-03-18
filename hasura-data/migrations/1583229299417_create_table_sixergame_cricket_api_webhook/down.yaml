@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "sixergame"."cricket_api_webhook"
+  type: run_sql

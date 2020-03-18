@@ -1,0 +1,25 @@
+- args:
+    sql: CREATE TABLE "datascience"."batsmen_historical_stats"("id" serial
+      NOT NULL, "match_key" text NOT
+      NULL, "format" text NOT NULL, "player_key" text NOT NULL, "team_key" text NOT
+      NULL, "team_name" text NOT NULL, "selected" text NOT NULL, "playing_xi" text
+      NOT NULL, "team_round" text NOT NULL, "opponent_round_key" text NOT NULL, "batting_order"
+      text NOT NULL, "innings" text NOT NULL, "winning_team" text NOT NULL, "runs_scored"
+      text NOT NULL, "balls_faced" text NOT NULL, "strike_rate" text NOT NULL, "dismissed"
+      text NOT NULL, "keeper" text NOT NULL, "bowler" text NOT NULL, "batsman" text
+      NOT NULL, "team_runs_total" text NOT NULL, "team_runs_overs" text NOT NULL,
+      "opponent_runs_total" text NOT NULL, "opponent_runs_overs" text NOT NULL, "team_run_rate"
+      text NOT NULL, "opponent_run_rate" text NOT NULL, "batting_order_id" text NOT
+      NULL, "man_of_the_match" text NOT NULL, "venue" text NOT NULL, "percentage_of_team_total"
+      text NOT NULL, "team_modified_run_rate" text NOT NULL, "opponent_modified_run_rate"
+      text NOT NULL, "modified_run_rate_ratio" text NOT NULL, "opposition_impact"
+      text NOT NULL, "pitch_impact" text NOT NULL, "location_score" text NOT NULL,
+      "batting_impact" text NOT NULL, "negative_points_duck" text NOT NULL, "half_century"
+      text NOT NULL, "century" text NOT NULL, "contribution_to_the_result" text NOT
+      NULL, "strike_rate_impact" text NOT NULL, "victory_bonus" text NOT NULL, "start_xi_bonus"
+      text NOT NULL, "dismissal_bonus" text NOT NULL, "iso" text NOT NULL, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: batsmen_historical_stats
+    schema: datascience
+  type: add_existing_table_or_view

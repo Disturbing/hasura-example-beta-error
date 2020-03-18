@@ -1,0 +1,9 @@
+- args:
+    custom_column_names:
+      merchant_id: merchantId
+    custom_root_fields: {}
+    table:
+      name: payout_endpoint
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

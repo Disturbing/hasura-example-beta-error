@@ -1,0 +1,17 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."users" ALTER COLUMN "created_at" TYPE timestamptz;
+  type: run_sql
+- args:
+    custom_column_names:
+      created_at: createdAt
+      free_game_balance: freeGameBalance
+      phone_number: phoneNumber
+      real_game_balance: realGameBalance
+    custom_root_fields: {}
+    table:
+      name: users
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

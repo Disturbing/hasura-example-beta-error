@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: insert into sixergame."configurations" (key, value) values ('withdraw_platform_charge',
+      '0.5');
+  type: run_sql

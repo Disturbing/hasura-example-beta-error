@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "datascience"."batting_historical_stats"("id" serial
+      NOT NULL, "match_key" text, "format" text, "player_key" text, "team_key" text, "team_name" text, "selected" text, "playing_xi" text, "team_round" text, "opponent_round_key" text, "batting_order" text, "innings" text, "winning_team" text, "runs_scored" text, "balls_faced" text, "strike_rate" text, "dismissed" text, "keeper" text, "bowler" text, "batsman" text, "team_runs_total" text, "team_runs_overs" text, "opponent_runs_total" text, "opponent_runs_overs" text, "team_run_rate" text, "opponent_run_rate" text, "batting_order_id" text, "man_of_the_match" text, "venue" text, "percentage_of_team_total" text, "team_modified_run_rate" text, "opponent_modified_run_rate" text, "modified_run_rate_ratio" text, "opposition_impact" text, "pitch_impact" text, "location_score" text, "batting_impact" text, "negative_points_duck" text, "half_century" text, "century" text, "contribution_to_the_result" text, "strike_rate_impact" text, "victory_bonus" text, "start_xi_bonus" text, "dismissal_bonus" text, "iso" text, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: batting_historical_stats
+    schema: datascience
+  type: add_existing_table_or_view

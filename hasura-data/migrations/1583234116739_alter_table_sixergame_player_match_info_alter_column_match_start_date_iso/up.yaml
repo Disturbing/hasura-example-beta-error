@@ -1,0 +1,18 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."player_match_info" ALTER COLUMN "match_start_date_iso"
+      TYPE timestamptz;
+  type: run_sql
+- args:
+    custom_column_names:
+      last_updated_on: lastUpdatedOn
+      match_end_date: matchEndDate
+      match_start_date_iso: matchStartDateIso
+      player_key: playerKey
+    custom_root_fields: {}
+    table:
+      name: player_match_info
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

@@ -1,0 +1,13 @@
+- args:
+    name: users
+    table:
+      name: sessions
+      schema: sixergame
+    using:
+      manual_configuration:
+        column_mapping:
+          user_id: id
+        remote_table:
+          name: users
+          schema: sixergame
+  type: create_object_relationship

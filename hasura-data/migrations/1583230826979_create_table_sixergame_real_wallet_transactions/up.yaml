@@ -1,0 +1,20 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "sixergame"."real_wallet_transactions"("id" uuid NOT NULL DEFAULT
+      gen_random_uuid(), "customer_id" bigint NOT NULL, "coin_event" text NOT NULL,
+      "customer_event" text NOT NULL, "quantity" bigint NOT NULL, "price" float8 NOT
+      NULL, "total_coins" float8 NOT NULL, "updated_balance" float8 NOT NULL, "metc_order_id"
+      text, "remarks" text, "transaction_time" timestamptz NOT NULL, "status" text
+      NOT NULL, "symbol" text, "paymentgateway_order_id" text, "paymentgateway_reference_id"
+      text, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: real_wallet_transactions
+    schema: sixergame
+  type: add_existing_table_or_view

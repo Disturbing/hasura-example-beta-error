@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TABLE "sixergame"."icc_rankings";
+  type: run_sql

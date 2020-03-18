@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "sixergame"."users" ADD COLUMN "verification_status" text NULL;
+  type: run_sql

@@ -1,0 +1,50 @@
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - description: null
+        name: status
+        type: String!
+      - description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+    scalars: []
+  type: set_custom_types
+- args:
+    comment: null
+    definition:
+      arguments:
+      - description: null
+        name: isFree
+        type: Boolean!
+      - description: null
+        name: userId
+        type: String!
+      - description: null
+        name: isBuy
+        type: Boolean!
+      - description: null
+        name: orders
+        type: '[OrderInput!]!'
+      forward_client_headers: false
+      handler: http://{{WEB_API_HOST_NAME}}/orders/create
+      headers: []
+      kind: synchronous
+      output_type: ordersCreateResponse
+    name: ordersCreate
+  type: create_action

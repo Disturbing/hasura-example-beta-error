@@ -1,0 +1,104 @@
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: approveUserKYCResponse
+      relationships: null
+    - description: null
+      fields:
+      - description: null
+        name: status
+        type: String!
+      - description: null
+        name: cashfreeOrderID
+        type: String!
+      - description: null
+        name: message
+        type: String!
+      - description: null
+        name: cashfreeToken
+        type: String!
+      - description: null
+        name: cashfreeNotifyURL
+        type: String!
+      - description: null
+        name: cashfreeClientID
+        type: String!
+      - description: null
+        name: orderNote
+        type: String!
+      name: cashfreeTokenResponse
+    scalars: []
+  type: set_custom_types
+- args:
+    comment: null
+    definition:
+      arguments:
+      - description: null
+        name: orderAmount
+        type: String!
+      - description: null
+        name: orderCurrency
+        type: String!
+      - description: null
+        name: userID
+        type: String!
+      - description: null
+        name: countryCode
+        type: String!
+      - description: null
+        name: mobileNumber
+        type: String!
+      - description: null
+        name: name
+        type: String!
+      - description: null
+        name: email
+        type: String!
+      - description: null
+        name: isProductionBuild
+        type: Boolean!
+      - description: null
+        name: state
+        type: String!
+      forward_client_headers: false
+      handler: http://{{WEB_API_HOST_NAME}}/wallet/generateToken
+      headers: []
+      kind: synchronous
+      output_type: cashfreeTokenResponse
+    name: cashfreeToken
+  type: create_action

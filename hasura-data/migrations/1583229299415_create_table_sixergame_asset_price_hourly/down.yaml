@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "sixergame"."asset_price_hourly"
+  type: run_sql

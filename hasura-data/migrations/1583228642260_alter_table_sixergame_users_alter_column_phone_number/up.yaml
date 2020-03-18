@@ -1,0 +1,11 @@
+- args:
+    custom_column_names:
+      free_game_balance: freeGameBalance
+      phone_number: phoneNumber
+      real_game_balance: realGameBalance
+    custom_root_fields: {}
+    table:
+      name: users
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

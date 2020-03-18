@@ -1,0 +1,15 @@
+- args:
+    sql: CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  type: run_sql
+- args:
+    sql: CREATE TABLE "sixergame"."payment_gateway_transactions"("id" uuid NOT NULL
+      DEFAULT gen_random_uuid(), "order_id" text NOT NULL, "amount" float8 NOT NULL,
+      "currency" text NOT NULL, "user_id" bigint NOT NULL, "mobile_number" text NOT
+      NULL, "name" text NOT NULL, "email" text NOT NULL, "state" text NOT NULL, "status"
+      text NOT NULL, "reference_id" text NOT NULL, "payment_mode" text NOT NULL, "remark"
+      text NOT NULL, "transaction_date" timestamptz NOT NULL, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: payment_gateway_transactions
+    schema: sixergame
+  type: add_existing_table_or_view

@@ -1,0 +1,33 @@
+- args:
+    name: approveUserKYC
+  type: drop_action
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+      relationships: null
+    scalars: []
+  type: set_custom_types

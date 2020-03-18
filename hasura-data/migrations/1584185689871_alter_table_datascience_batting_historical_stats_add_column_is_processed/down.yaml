@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "datascience"."batting_historical_stats" DROP COLUMN "is_processed";
+  type: run_sql

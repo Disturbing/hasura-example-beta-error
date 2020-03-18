@@ -1,0 +1,25 @@
+- args:
+    sql: INSERT INTO sixergame.sixers
+      (
+        id,
+        name,
+        player_cricket_api_key,
+        keeper,
+        batsman,
+        bowler,
+        batting_style,
+        bowling_style,
+        is_active
+      )
+      VALUES
+        (262,'Devdutt Padikal','d_padikal',FALSE,TRUE,FALSE,'Right-Hand Bat','Right-Arm Medium',TRUE),
+        (263,'S Gopal','s_gopal',FALSE,FALSE,TRUE,'Right-Hand Bat','LegBreak',TRUE),
+        (264,'Simran Singh','ps_singh',TRUE,TRUE,FALSE,'Right-Hand Bat','Right-arm medium',TRUE),
+        (265,'M Singh','m_singh',FALSE,TRUE,TRUE,'Right-Hand Bat','Right-Arm Medium',TRUE),
+        (266,'S Singh','sh_singh',FALSE,TRUE,TRUE,'Right-Hand Bat','Right-Arm OffBreak',TRUE),
+        (267,'Monu Kumar','mo_kumar',FALSE,FALSE,TRUE,'Right-Hand Bat','Right-Arm Medium',TRUE),
+        (268,'Tajinder Singh','tj_singh',FALSE,TRUE,TRUE,'Right-Hand Bat','Right-arm offbreak',TRUE),
+        (269,'Josh Philippe','j_philippe',TRUE,TRUE,FALSE,'Right-Hand Bat','',TRUE),
+        (270,'RK Singh','rk_singh',FALSE,TRUE,FALSE,'Left-Hand Bat','Right-Arm OffBreak',TRUE),
+        (271,'Aniruddha Joshi','an_joshi',FALSE,TRUE,TRUE,'Right-Hand Bat','Right-Arm Slow Medium',TRUE)
+  type: run_sql

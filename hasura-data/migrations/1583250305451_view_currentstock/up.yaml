@@ -1,0 +1,20 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"currentstock\" AS \n SELECT b.user_id,\n
+      \   a.\"position\",\n    c.sixer_id AS symbol,\n    a.avg_cost,\n    a.pos_px,\n
+      \   a.pos_qty,\n    a.realized_gain,\n    a.unrealized_gain,\n    a.security_type,\n
+      \   c.is_free,\n    d.bid_id,\n    d.ask_id,\n    a.effective_date,\n    COALESCE((
+      SELECT count(*) AS count\n           FROM sixergame.player_match_info\n          WHERE
+      ((player_match_info.match_end_date > a.effective_date) AND (player_match_info.player_key
+      = c.sixer_id))\n          GROUP BY player_match_info.player_key), (0)::bigint)
+      AS effective_games\n   FROM sixer_positions a,\n    sixer_users b,\n    sixergame.metc_player_assets
+      c,\n    sixer_marketdata d\n  WHERE (((d.symbol)::text = (a.symbol)::text) AND
+      ((a.user_id = b.id) AND (a.effective_date = ( SELECT max(e.effective_date) AS
+      max\n           FROM sixer_positions e\n          WHERE (((a.symbol)::text =
+      (e.symbol)::text) AND (a.user_id = e.user_id)))) AND (c.symbol = (a.symbol)::text)));"
+  type: run_sql
+- args:
+    name: currentstock
+    schema: public
+  type: add_existing_table_or_view

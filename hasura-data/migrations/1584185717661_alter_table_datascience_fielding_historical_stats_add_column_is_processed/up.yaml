@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "datascience"."fielding_historical_stats" ADD COLUMN "is_processed"
+      boolean NULL DEFAULT false;
+  type: run_sql

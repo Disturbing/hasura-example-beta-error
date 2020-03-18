@@ -1,0 +1,1151 @@
+version: 2
+tables:
+- table:
+    schema: datascience
+    name: batsmen_historical_stats
+- table:
+    schema: datascience
+    name: batting_historical_stats
+- table:
+    schema: datascience
+    name: bowling_historical_stats
+- table:
+    schema: datascience
+    name: current_position
+- table:
+    schema: datascience
+    name: fielding_historical_stats
+- table:
+    schema: public
+    name: currentmarketdata
+- table:
+    schema: public
+    name: currentstock
+- table:
+    schema: public
+    name: dailyportfolio
+- table:
+    schema: public
+    name: exchange_closed_orders
+  object_relationships:
+  - name: exchange
+    using:
+      foreign_key_constraint_on: exchange_id
+  - name: exchange_orderbook
+    using:
+      foreign_key_constraint_on: order_book_id
+  - name: fix_message
+    using:
+      foreign_key_constraint_on: current_message_id
+- table:
+    schema: public
+    name: exchange_marketdata_content
+  object_relationships:
+  - name: exchange_marketdata_request
+    using:
+      foreign_key_constraint_on: request_id
+- table:
+    schema: public
+    name: exchange_marketdata_exchanges
+  object_relationships:
+  - name: exchange
+    using:
+      foreign_key_constraint_on: exchange_id
+  - name: exchange_marketdata_request
+    using:
+      foreign_key_constraint_on: request_id
+- table:
+    schema: public
+    name: exchange_marketdata_instruments
+  object_relationships:
+  - name: exchange_marketdata_request
+    using:
+      foreign_key_constraint_on: request_id
+- table:
+    schema: public
+    name: exchange_marketdata_requests
+  object_relationships:
+  - name: fix_message
+    using:
+      foreign_key_constraint_on: request_message_id
+  array_relationships:
+  - name: exchange_marketdata_contents
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          schema: public
+          name: exchange_marketdata_content
+  - name: exchange_marketdata_exchanges
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          schema: public
+          name: exchange_marketdata_exchanges
+  - name: exchange_marketdata_instruments
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          schema: public
+          name: exchange_marketdata_instruments
+- table:
+    schema: public
+    name: exchange_open_orders
+  object_relationships:
+  - name: exchange
+    using:
+      foreign_key_constraint_on: exchange_id
+  - name: exchange_orderbook
+    using:
+      foreign_key_constraint_on: order_book_id
+  - name: fix_message
+    using:
+      foreign_key_constraint_on: current_message_id
+- table:
+    schema: public
+    name: exchange_orderbook_stats
+  array_relationships:
+  - name: exchange_orderbooks
+    using:
+      foreign_key_constraint_on:
+        column: stats_id
+        table:
+          schema: public
+          name: exchange_orderbooks
+- table:
+    schema: public
+    name: exchange_orderbooks
+  object_relationships:
+  - name: exchange
+    using:
+      foreign_key_constraint_on: exchange_id
+  - name: exchange_orderbook_stat
+    using:
+      foreign_key_constraint_on: stats_id
+  array_relationships:
+  - name: exchange_closed_orders
+    using:
+      foreign_key_constraint_on:
+        column: order_book_id
+        table:
+          schema: public
+          name: exchange_closed_orders
+  - name: exchange_open_orders
+    using:
+      foreign_key_constraint_on:
+        column: order_book_id
+        table:
+          schema: public
+          name: exchange_open_orders
+- table:
+    schema: public
+    name: exchange_trade_details
+- table:
+    schema: public
+    name: exchanges
+  array_relationships:
+  - name: exchange_closed_orders
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          schema: public
+          name: exchange_closed_orders
+  - name: exchange_marketdata_exchanges
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          schema: public
+          name: exchange_marketdata_exchanges
+  - name: exchange_open_orders
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          schema: public
+          name: exchange_open_orders
+  - name: exchange_orderbooks
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          schema: public
+          name: exchange_orderbooks
+- table:
+    schema: public
+    name: exec_reports
+  object_relationships:
+  - name: report
+    using:
+      foreign_key_constraint_on: report_id
+  - name: user
+    using:
+      foreign_key_constraint_on: viewer_id
+  - name: userByActorId
+    using:
+      foreign_key_constraint_on: actor_id
+- table:
+    schema: public
+    name: fix_messages
+  object_relationships:
+  - name: exchange_marketdata_request
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: exchange_marketdata_requests
+        column_mapping:
+          id: request_message_id
+  - name: outgoing_message
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: outgoing_messages
+        column_mapping:
+          id: fix_message_id
+  - name: report
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: reports
+        column_mapping:
+          id: fix_message_id
+  array_relationships:
+  - name: exchange_closed_orders
+    using:
+      foreign_key_constraint_on:
+        column: current_message_id
+        table:
+          schema: public
+          name: exchange_closed_orders
+  - name: exchange_open_orders
+    using:
+      foreign_key_constraint_on:
+        column: current_message_id
+        table:
+          schema: public
+          name: exchange_open_orders
+- table:
+    schema: public
+    name: fix_session_attr_dscrptrs
+- table:
+    schema: public
+    name: fix_session_attributes
+  object_relationships:
+  - name: fix_session
+    using:
+      foreign_key_constraint_on: fix_session_id
+- table:
+    schema: public
+    name: fix_sessions
+  array_relationships:
+  - name: fix_session_attributes
+    using:
+      foreign_key_constraint_on:
+        column: fix_session_id
+        table:
+          schema: public
+          name: fix_session_attributes
+- table:
+    schema: public
+    name: flyway_schema_history
+- table:
+    schema: public
+    name: handled_messages
+- table:
+    schema: public
+    name: id_repository
+- table:
+    schema: public
+    name: incoming_fix_messages
+- table:
+    schema: public
+    name: message_store_messages
+- table:
+    schema: public
+    name: message_store_sessions
+- table:
+    schema: public
+    name: order_status
+  object_relationships:
+  - name: report
+    using:
+      foreign_key_constraint_on: report_id
+  - name: user
+    using:
+      foreign_key_constraint_on: actor_id
+  - name: userByViewerId
+    using:
+      foreign_key_constraint_on: viewer_id
+- table:
+    schema: public
+    name: outgoing_messages
+  object_relationships:
+  - name: fix_message
+    using:
+      foreign_key_constraint_on: fix_message_id
+  - name: user
+    using:
+      foreign_key_constraint_on: actor_id
+- table:
+    schema: public
+    name: permissions
+  array_relationships:
+  - name: roles_permissions
+    using:
+      foreign_key_constraint_on:
+        column: permissions_id
+        table:
+          schema: public
+          name: roles_permissions
+  - name: supervisor_permissions_permissions
+    using:
+      foreign_key_constraint_on:
+        column: permissions_id
+        table:
+          schema: public
+          name: supervisor_permissions_permissions
+- table:
+    schema: public
+    name: pricechangeoneweek
+- table:
+    schema: public
+    name: reports
+  object_relationships:
+  - name: exec_report
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: exec_reports
+        column_mapping:
+          id: report_id
+  - name: fix_message
+    using:
+      foreign_key_constraint_on: fix_message_id
+  - name: order_status
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: order_status
+        column_mapping:
+          id: report_id
+  - name: user
+    using:
+      foreign_key_constraint_on: actor_id
+  - name: userByViewerId
+    using:
+      foreign_key_constraint_on: viewer_id
+- table:
+    schema: public
+    name: roles
+  array_relationships:
+  - name: roles_permissions
+    using:
+      foreign_key_constraint_on:
+        column: roles_id
+        table:
+          schema: public
+          name: roles_permissions
+  - name: roles_users
+    using:
+      foreign_key_constraint_on:
+        column: role_id
+        table:
+          schema: public
+          name: roles_users
+- table:
+    schema: public
+    name: roles_permissions
+  object_relationships:
+  - name: permission
+    using:
+      foreign_key_constraint_on: permissions_id
+  - name: role
+    using:
+      foreign_key_constraint_on: roles_id
+- table:
+    schema: public
+    name: roles_users
+  object_relationships:
+  - name: role
+    using:
+      foreign_key_constraint_on: role_id
+  - name: user
+    using:
+      foreign_key_constraint_on: subjects_id
+- table:
+    schema: public
+    name: sixer_lots
+  object_relationships:
+  - name: sixer_position
+    using:
+      foreign_key_constraint_on: position_id
+  - name: sixer_trade
+    using:
+      foreign_key_constraint_on: trade_id
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: sixer_managed_orders
+- table:
+    schema: public
+    name: sixer_marketdata
+  object_relationships:
+  - name: sixer_marketdata_element
+    using:
+      foreign_key_constraint_on: ask_id
+  - name: sixerMarketdataElementByBidId
+    using:
+      foreign_key_constraint_on: bid_id
+  - name: sixerMarketdataElementByLastTradeId
+    using:
+      foreign_key_constraint_on: last_trade_id
+- table:
+    schema: public
+    name: sixer_marketdata_elements
+  array_relationships:
+  - name: sixer_marketdata
+    using:
+      foreign_key_constraint_on:
+        column: bid_id
+        table:
+          schema: public
+          name: sixer_marketdata
+  - name: sixerMarketdataByAskId
+    using:
+      foreign_key_constraint_on:
+        column: ask_id
+        table:
+          schema: public
+          name: sixer_marketdata
+  - name: sixerMarketdataByLastTradeId
+    using:
+      foreign_key_constraint_on:
+        column: last_trade_id
+        table:
+          schema: public
+          name: sixer_marketdata
+- table:
+    schema: public
+    name: sixer_order_status
+  object_relationships:
+  - name: sixer_placed_order
+    using:
+      foreign_key_constraint_on: order_id
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: sixer_placed_orders
+  object_relationships:
+  - name: sixer_order_status
+    using:
+      manual_configuration:
+        remote_table:
+          schema: public
+          name: sixer_order_status
+        column_mapping:
+          id: order_id
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: sixer_pnl
+  object_relationships:
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+  array_relationships:
+  - name: sixer_user_trades
+    using:
+      foreign_key_constraint_on:
+        column: pnl_id
+        table:
+          schema: public
+          name: sixer_user_trades
+- table:
+    schema: public
+    name: sixer_positions
+  object_relationships:
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+  array_relationships:
+  - name: sixer_lots
+    using:
+      foreign_key_constraint_on:
+        column: position_id
+        table:
+          schema: public
+          name: sixer_lots
+- table:
+    schema: public
+    name: sixer_trades
+  array_relationships:
+  - name: sixer_lots
+    using:
+      foreign_key_constraint_on:
+        column: trade_id
+        table:
+          schema: public
+          name: sixer_lots
+  - name: sixer_user_trades
+    using:
+      foreign_key_constraint_on:
+        column: trade_id
+        table:
+          schema: public
+          name: sixer_user_trades
+- table:
+    schema: public
+    name: sixer_user_trades
+  object_relationships:
+  - name: sixer_pnl
+    using:
+      foreign_key_constraint_on: pnl_id
+  - name: sixer_trade
+    using:
+      foreign_key_constraint_on: trade_id
+  - name: sixer_user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: sixer_users
+  array_relationships:
+  - name: sixer_lots
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_lots
+  - name: sixer_order_statuses
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_order_status
+  - name: sixer_placed_orders
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_placed_orders
+  - name: sixer_pnls
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_pnl
+  - name: sixer_positions
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_positions
+  - name: sixer_user_trades
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: sixer_user_trades
+- table:
+    schema: public
+    name: stockhistory
+- table:
+    schema: public
+    name: supervisor_permissions
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+  array_relationships:
+  - name: supervisor_permissions_permissions
+    using:
+      foreign_key_constraint_on:
+        column: supervisor_permission_id
+        table:
+          schema: public
+          name: supervisor_permissions_permissions
+  - name: supervisor_permissions_users
+    using:
+      foreign_key_constraint_on:
+        column: supervisor_permission_id
+        table:
+          schema: public
+          name: supervisor_permissions_users
+- table:
+    schema: public
+    name: supervisor_permissions_permissions
+  object_relationships:
+  - name: permission
+    using:
+      foreign_key_constraint_on: permissions_id
+  - name: supervisor_permission
+    using:
+      foreign_key_constraint_on: supervisor_permission_id
+- table:
+    schema: public
+    name: supervisor_permissions_users
+  object_relationships:
+  - name: supervisor_permission
+    using:
+      foreign_key_constraint_on: supervisor_permission_id
+  - name: user
+    using:
+      foreign_key_constraint_on: subjects_id
+- table:
+    schema: public
+    name: top_buys
+- table:
+    schema: public
+    name: trending_players
+- table:
+    schema: public
+    name: user_attributes
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: users
+  array_relationships:
+  - name: exec_reports
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          schema: public
+          name: exec_reports
+  - name: execReportsByActorId
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          schema: public
+          name: exec_reports
+  - name: order_statuses
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          schema: public
+          name: order_status
+  - name: orderStatusesByViewerId
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          schema: public
+          name: order_status
+  - name: outgoing_messages
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          schema: public
+          name: outgoing_messages
+  - name: reports
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          schema: public
+          name: reports
+  - name: reportsByViewerId
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          schema: public
+          name: reports
+  - name: roles_users
+    using:
+      foreign_key_constraint_on:
+        column: subjects_id
+        table:
+          schema: public
+          name: roles_users
+  - name: supervisor_permissions
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: supervisor_permissions
+  - name: supervisor_permissions_users
+    using:
+      foreign_key_constraint_on:
+        column: subjects_id
+        table:
+          schema: public
+          name: supervisor_permissions_users
+  - name: user_attributes
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: user_attributes
+- table:
+    schema: sixergame
+    name: asset_price_daily
+- table:
+    schema: sixergame
+    name: asset_price_hourly
+- table:
+    schema: sixergame
+    name: configurations
+- table:
+    schema: sixergame
+    name: cricket_api_webhook
+- table:
+    schema: sixergame
+    name: datascience_webhook
+- table:
+    schema: sixergame
+    name: domestic_rankings
+- table:
+    schema: sixergame
+    name: free_wallet_transactions
+- table:
+    schema: sixergame
+    name: icc_rankings
+- table:
+    schema: sixergame
+    name: market_data_history
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      shares_outstanding: sharesOutstanding
+      security_type: securityType
+      bid_price: bidPrice
+      ask_price: askPrice
+      max_outlay: maxOutlay
+- table:
+    schema: sixergame
+    name: match_details
+- table:
+    schema: sixergame
+    name: match_status
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      end_date: endDate
+      start_date: startDate
+      match_key: matchKey
+- table:
+    schema: sixergame
+    name: metc_player_assets
+  object_relationships:
+  - name: sixerConnect
+    using:
+      manual_configuration:
+        remote_table:
+          schema: sixergame
+          name: sixers
+        column_mapping:
+          sixer_id: player_cricket_api_key
+- table:
+    schema: sixergame
+    name: payment_gateway_transactions
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      order_id: orderId
+      withdrawal_acknowledgement: withdrawalAcknowledgement
+      gst_platform_charge: gstPlatformCharge
+      phone_number: phoneNumber
+      payment_mode: paymentMode
+      transaction_date: transactionDate
+      platform_charge: platformCharge
+      total_service_charge: totalServiceCharge
+      user_id: userId
+      reference_id: referenceId
+- table:
+    schema: sixergame
+    name: payout_endpoint
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      created_date: createdDate
+      merchant_id: merchantId
+      user_id: userId
+      updated_date: updatedDate
+- table:
+    schema: sixergame
+    name: player_match_info
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      match_number: matchNumber
+      match_name: matchName
+      player_key: playerKey
+      match_key: matchKey
+      match_start_date_timestamp: matchStartDateTimestamp
+      match_start_date_iso: matchStartDateIso
+      match_end_date: matchEndDate
+      last_updated_on: lastUpdatedOn
+- table:
+    schema: sixergame
+    name: portfolio_value_daily
+- table:
+    schema: sixergame
+    name: real_wallet_transactions
+- table:
+    schema: sixergame
+    name: sessions
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      expires_at: expiresAt
+      created_at: createdAt
+      user_id: userId
+  object_relationships:
+  - name: users
+    using:
+      manual_configuration:
+        remote_table:
+          schema: sixergame
+          name: users
+        column_mapping:
+          user_id: id
+- table:
+    schema: sixergame
+    name: sixers
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      icc_stats: iccStats
+      ipl_team: iplTeam
+      scheduled_matches: scheduledMatches
+      batting_style: battingStyle
+      bowling_style: bowlingStyle
+      player_cricket_api_key: playerCricketApiKey
+      all_teams: allTeams
+      ipl_stats: iplStats
+      icc_team: iccTeam
+      last_updated_on: lastUpdatedOn
+      is_active: isActive
+- table:
+    schema: sixergame
+    name: users
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      real_game_balance: realGameBalance
+      phone_number: phoneNumber
+      verifying_email: verifyingEmail
+      free_game_balance: freeGameBalance
+      created_at: createdAt
+      rejected_reason: rejectedReason
+      verifying_email_otp: verifyingEmailOTP
+  computed_fields:
+  - name: bank_document_image
+    definition:
+      function:
+        schema: sixergame
+        name: bankdoc_base64
+      table_argument: null
+    comment: bank_document to image
+  - name: pan_card_image
+    definition:
+      function:
+        schema: sixergame
+        name: pancard_base64
+      table_argument: null
+    comment: pan_card to image
+actions:
+- name: approveUserKYC
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/approveUserKYC
+    arguments:
+    - name: isProductionBuild
+      type: Boolean!
+    - name: userId
+      type: String!
+    - name: user
+      type: String!
+    - name: password
+      type: String!
+    output_type: approveUserKYCResponse
+- name: cashfreeToken
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/generateToken
+    arguments:
+    - name: orderAmount
+      type: String!
+    - name: orderCurrency
+      type: String!
+    - name: userID
+      type: String!
+    - name: countryCode
+      type: String!
+    - name: mobileNumber
+      type: String!
+    - name: name
+      type: String!
+    - name: email
+      type: String!
+    - name: isProductionBuild
+      type: Boolean!
+    - name: state
+      type: String!
+    output_type: cashfreeTokenResponse
+- name: checkClosePortfolio
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/portfolio/canClose
+    arguments:
+    - name: isFree
+      type: Boolean!
+    output_type: checkClosePortfolioResponse
+- name: closePortfolio
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/portfolio/close
+    arguments:
+    - name: isFree
+      type: Boolean!
+    - name: userId
+      type: String!
+    output_type: ClosePortfolioResponse
+- name: ordersCreate
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/orders/create
+    arguments:
+    - name: isFree
+      type: Boolean!
+    - name: userId
+      type: String!
+    - name: isBuy
+      type: Boolean!
+    - name: orders
+      type: '[OrderInput!]!'
+    output_type: ordersCreateResponse
+- name: paymentStatus
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/paymentStatusCheck
+    arguments:
+    - name: userID
+      type: String!
+    - name: orderID
+      type: String!
+    - name: clientStatus
+      type: String!
+    - name: signature
+      type: String!
+    - name: referenceID
+      type: String!
+    - name: orderAmount
+      type: String!
+    - name: paymentMode
+      type: String!
+    - name: txMsg
+      type: String!
+    - name: txTime
+      type: String!
+    - name: isProductionBuild
+      type: Boolean!
+    output_type: paymentStatusResponse
+- name: phoneAuthVerifyToken
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/login/verifyFirebaseToken
+    arguments:
+    - name: uid
+      type: String!
+    - name: countryCode
+      type: String!
+    - name: phoneNumber
+      type: String!
+    output_type: PhoneAuthVerifyTokenResponse
+- name: verifyBank
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/validateBank
+    arguments:
+    - name: bankAccountNumber
+      type: String!
+    - name: bankIFSC
+      type: String!
+    output_type: VerifyBankResponse
+- name: verifyEmail
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/login/verifyEmail
+    arguments:
+    - name: email
+      type: String!
+    output_type: VerifyEmailResponse
+- name: verifyEmailOTP
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/login/verifyEmailOTP
+    arguments:
+    - name: otp
+      type: String!
+    output_type: VerifyEmailOTPResponse
+- name: verifyPAN
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/validatePAN
+    arguments:
+    - name: panNumber
+      type: String!
+    output_type: VerifyPANResponse
+- name: withdrawCoins
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/withdrawCoins
+    arguments:
+    - name: isProductionBuild
+      type: Boolean!
+    - name: amount
+      type: String!
+    output_type: withdrawCoinsResponse
+- name: withdrawMoneyServiceCharges
+  definition:
+    kind: synchronous
+    handler: http://{{WEB_API_HOST_NAME}}/wallet/withdrawMoneyServiceCharges
+    arguments:
+    - name: amount
+      type: Float!
+    output_type: withdrawMoneyServiceChargesResponse
+custom_types:
+  input_objects:
+  - name: OrderInput
+    fields:
+    - name: symbol
+      type: String!
+    - name: quantity
+      type: Int!
+    - name: price
+      type: Float!
+  objects:
+  - name: ordersCreateResponse
+    fields:
+    - name: status
+      type: String!
+    - name: message
+      type: String!
+  - name: approveUserKYCResponse
+    fields:
+    - name: status
+      type: String!
+    - name: message
+      type: String!
+  - name: cashfreeTokenResponse
+    fields:
+    - name: status
+      type: String!
+    - name: cashfreeOrderID
+      type: String!
+    - name: message
+      type: String!
+    - name: cashfreeToken
+      type: String!
+    - name: cashfreeNotifyURL
+      type: String!
+    - name: cashfreeClientID
+      type: String!
+    - name: orderNote
+      type: String!
+  - name: checkClosePortfolioResponse
+    fields:
+    - name: minimumStocks
+      type: Boolean!
+    - name: minimumGamesHold
+      type: Boolean!
+  - name: ClosePortfolioResponse
+    fields:
+    - name: status
+      type: String!
+    - name: message
+      type: String!
+  - name: paymentStatusResponse
+    fields:
+    - name: paymentStatus
+      type: String!
+    - name: message
+      type: String!
+  - name: PhoneAuthVerifyTokenResponse
+    fields:
+    - name: jwtToken
+      type: String!
+    - name: userID
+      type: String!
+    relationships:
+    - remote_table:
+        schema: sixergame
+        name: users
+      name: user_object
+      type: object
+      field_mapping:
+        userID: id
+  - name: VerifyBankResponse
+    fields:
+    - name: message
+      type: String!
+    - name: status
+      type: String!
+  - name: VerifyEmailResponse
+    fields:
+    - name: message
+      type: String!
+    - name: otp
+      type: String!
+  - name: VerifyEmailOTPResponse
+    fields:
+    - name: message
+      type: String!
+    - name: status
+      type: String!
+  - name: VerifyPANResponse
+    fields:
+    - name: message
+      type: String!
+    - name: status
+      type: String!
+  - name: withdrawCoinsResponse
+    fields:
+    - name: status
+      type: String!
+    - name: message
+      type: String!
+  - name: withdrawMoneyServiceChargesResponse
+    fields:
+    - name: serviceCharges
+      type: String!
+    - name: status
+      type: String!
+    - name: transferAmount
+      type: Float!
+    - name: totalAmount
+      type: Float!
+    - name: moneyToCoinRatio
+      type: Float!
+    - name: totalServiceCharge
+      type: Float!

@@ -1,0 +1,18 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "transaction_date"
+      TYPE timestamptz;
+  type: run_sql
+- args:
+    custom_column_names:
+      order_id: orderId
+      payment_mode: paymentMode
+      phone_number: phoneNumber
+      reference_id: referenceId
+      transaction_date: transactionDate
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "sixergame"."users" ADD COLUMN "bank_account_branch_name" text
+      NULL;
+  type: run_sql

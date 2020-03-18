@@ -1,0 +1,6 @@
+- args:
+    name: bank_document_image
+    table:
+      name: users
+      schema: sixergame
+  type: drop_computed_field

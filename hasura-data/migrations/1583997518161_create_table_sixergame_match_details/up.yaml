@@ -1,0 +1,19 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "sixergame"."match_details"("id" uuid NOT NULL DEFAULT gen_random_uuid(),
+      "match_key" text NOT NULL, "status" text NOT NULL, "start_date" timestamptz NOT NULL,
+      "end_date" timestamptz, "season_key" text NOT NULL, "season_name" text
+      NOT NULL, "category" text NOT NULL, "tier" text NOT NULL, "team_a_key" text
+      NOT NULL, "team_b_key" text NOT NULL, "format" text NOT NULL, "winner_team"
+      text, PRIMARY KEY ("id") , UNIQUE ("match_key"));
+  type: run_sql
+- args:
+    name: match_details
+    schema: sixergame
+  type: add_existing_table_or_view

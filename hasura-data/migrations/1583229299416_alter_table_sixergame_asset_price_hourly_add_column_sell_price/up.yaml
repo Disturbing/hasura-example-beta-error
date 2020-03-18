@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "sixergame"."asset_price_hourly" ADD COLUMN "sell_price" numeric
+      NULL;
+  type: run_sql

@@ -1,0 +1,11 @@
+- args:
+    sql: CREATE TABLE "sixergame"."market_data_history"("id" bigserial NOT NULL, "symbol"
+      text NOT NULL, "shares_outstanding" numeric, "security_type" text, "bid_price"
+      numeric, "ask_price" numeric, "high" numeric, "low" numeric, "max_outlay" numeric,
+      "volume" numeric, "close" numeric, "date" date NOT NULL, PRIMARY KEY ("id")
+      );
+  type: run_sql
+- args:
+    name: market_data_history
+    schema: sixergame
+  type: add_existing_table_or_view

@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "sixergame"."configurations"
+  type: run_sql

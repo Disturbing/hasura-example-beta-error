@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "sixergame"."cricket_api_webhook" ADD COLUMN "not_processed"
+      boolean NULL DEFAULT true;
+  type: run_sql

@@ -1,0 +1,15 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"currentmarketdata\" AS \n SELECT d.sixer_id
+      AS symbol,\n    b.price AS buy_price,\n    c.price AS sell_price,\n    d.is_free,\n
+      \   a.close,\n    a.high,\n    a.low,\n    a.max_outlay,\n    a.open,\n    a.security_type,\n
+      \   a.shares_outstanding,\n    a.volume,\n    a.vwap\n   FROM sixer_marketdata
+      a,\n    sixer_marketdata_elements b,\n    sixer_marketdata_elements c,\n    sixergame.metc_player_assets
+      d\n  WHERE ((a.ask_id = b.id) AND (a.bid_id = c.id) AND ((a.symbol)::text =
+      d.symbol));"
+  type: run_sql
+- args:
+    name: currentmarketdata
+    schema: public
+  type: add_existing_table_or_view

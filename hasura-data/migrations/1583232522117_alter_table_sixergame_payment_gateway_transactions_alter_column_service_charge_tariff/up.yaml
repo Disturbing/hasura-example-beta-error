@@ -1,0 +1,23 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "service_charge_tariff"
+      TYPE float8;
+  type: run_sql
+- args:
+    custom_column_names:
+      gst_service_charge: gstServiceCharge
+      is_service_charge_settled: isServiceChargeSettled
+      order_id: orderId
+      payment_mode: paymentMode
+      phone_number: phoneNumber
+      reference_id: referenceId
+      service_charge: serviceCharge
+      service_charge_tariff: serviceChargeTariff
+      total_service_charge: totalServiceCharge
+      transaction_date: transactionDate
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

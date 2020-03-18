@@ -1,0 +1,9 @@
+- args:
+    custom_column_names:
+      player_cricket_api_key: playerCricketApiKey
+    custom_root_fields: {}
+    table:
+      name: sixers
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

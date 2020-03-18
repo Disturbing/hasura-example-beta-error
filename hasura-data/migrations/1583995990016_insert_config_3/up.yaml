@@ -1,0 +1,32 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "INSERT INTO sixergame.configurations\r\n      (\r\n        key,\r\n        value\r\n
+      \     )\r\n      VALUES\r\n        ('match_keyword_search','[{\"keyword\":\"Women\",\"type\":\"Women\",\"tier\":\"NA\"},\r\n{\"keyword\":\"Under
+      19\",\"type\":\"U19\",\"tier\":\"NA\"},\r\n{\"keyword\":\"U19\",\"type\":\"U19\",\"tier\":\"NA\"},\r\n{\"keyword\":\"U-19\",\"type\":\"U19\",\"tier\":\"NA\"},\r\n{\"keyword\":\"ICC\",\"type\":\"ICC\",\"tier\":\"1\"},\r\n{\"keyword\":\"Asia
+      Cup\",\"type\":\"ICC\",\"tier\":\"1\"},\r\n{\"keyword\":\"Momentum\",\"type\":\"First
+      Class\",\"tier\":\"NA\"},\r\n{\"keyword\":\"Africa T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Afghanistan
+      Premier League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Bangladesh
+      Premier League\",\"type\":\"T20 League\",\"tier\":\"2\"},\r\n{\"keyword\":\"Big
+      Bash League\",\"type\":\"T20 League\",\"tier\":\"1\"},\r\n{\"keyword\":\"Caribbean
+      Premier League\",\"type\":\"T20 League\",\"tier\":\"2\"},\r\n{\"keyword\":\"Champions
+      League\",\"type\":\"T20 League\",\"tier\":\"2\"},\r\n{\"keyword\":\"CLT20\",\"type\":\"T20
+      League\",\"tier\":\"3\"},\r\n{\"keyword\":\"CSA T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Euro
+      T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"European Cricket
+      League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Global T20
+      League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"HONG KONG
+      T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Indian Premier
+      League\",\"type\":\"T20 League\",\"tier\":\"1\"},\r\n{\"keyword\":\"IPL T20\",\"type\":\"T20
+      League\",\"tier\":\"1\"},\r\n{\"keyword\":\"Karnataka Premier League\",\"type\":\"T20
+      League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Mumbai T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Mzansi
+      Super League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Oman
+      Pentagular T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Pakistan
+      Super League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Qatar
+      T10 League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Ram
+      Slam T20\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Ramslam\",\"type\":\"T20
+      League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Saurashtra Premier League\",\"type\":\"T20
+      League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Super Smash\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"T10
+      League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"Tamil Nadu
+      Premier League\",\"type\":\"T20 League\",\"tier\":\"3\"},\r\n{\"keyword\":\"VITALITY
+      T20 BLAST\",\"type\":\"T20 League\",\"tier\":\"2\"}]');"
+  type: run_sql

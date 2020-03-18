@@ -1,0 +1,986 @@
+- args:
+    name: exchange
+    table:
+      name: exchange_closed_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: exchange_id
+  type: create_object_relationship
+- args:
+    name: exchange_orderbook
+    table:
+      name: exchange_closed_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: order_book_id
+  type: create_object_relationship
+- args:
+    name: fix_message
+    table:
+      name: exchange_closed_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: current_message_id
+  type: create_object_relationship
+- args:
+    name: exchange_marketdata_request
+    table:
+      name: exchange_marketdata_content
+      schema: public
+    using:
+      foreign_key_constraint_on: request_id
+  type: create_object_relationship
+- args:
+    name: exchange
+    table:
+      name: exchange_marketdata_exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on: exchange_id
+  type: create_object_relationship
+- args:
+    name: exchange_marketdata_request
+    table:
+      name: exchange_marketdata_exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on: request_id
+  type: create_object_relationship
+- args:
+    name: exchange_marketdata_request
+    table:
+      name: exchange_marketdata_instruments
+      schema: public
+    using:
+      foreign_key_constraint_on: request_id
+  type: create_object_relationship
+- args:
+    name: fix_message
+    table:
+      name: exchange_marketdata_requests
+      schema: public
+    using:
+      foreign_key_constraint_on: request_message_id
+  type: create_object_relationship
+- args:
+    name: exchange_marketdata_contents
+    table:
+      name: exchange_marketdata_requests
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          name: exchange_marketdata_content
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_marketdata_instruments
+    table:
+      name: exchange_marketdata_requests
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          name: exchange_marketdata_instruments
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_marketdata_exchanges
+    table:
+      name: exchange_marketdata_requests
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: request_id
+        table:
+          name: exchange_marketdata_exchanges
+          schema: public
+  type: create_array_relationship
+- args:
+    name: fix_message
+    table:
+      name: exchange_open_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: current_message_id
+  type: create_object_relationship
+- args:
+    name: exchange
+    table:
+      name: exchange_open_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: exchange_id
+  type: create_object_relationship
+- args:
+    name: exchange_orderbook
+    table:
+      name: exchange_open_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: order_book_id
+  type: create_object_relationship
+- args:
+    name: exchange_orderbooks
+    table:
+      name: exchange_orderbook_stats
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: stats_id
+        table:
+          name: exchange_orderbooks
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange
+    table:
+      name: exchange_orderbooks
+      schema: public
+    using:
+      foreign_key_constraint_on: exchange_id
+  type: create_object_relationship
+- args:
+    name: exchange_orderbook_stat
+    table:
+      name: exchange_orderbooks
+      schema: public
+    using:
+      foreign_key_constraint_on: stats_id
+  type: create_object_relationship
+- args:
+    name: exchange_closed_orders
+    table:
+      name: exchange_orderbooks
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: order_book_id
+        table:
+          name: exchange_closed_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_open_orders
+    table:
+      name: exchange_orderbooks
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: order_book_id
+        table:
+          name: exchange_open_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_closed_orders
+    table:
+      name: exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          name: exchange_closed_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_orderbooks
+    table:
+      name: exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          name: exchange_orderbooks
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_marketdata_exchanges
+    table:
+      name: exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          name: exchange_marketdata_exchanges
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_open_orders
+    table:
+      name: exchanges
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: exchange_id
+        table:
+          name: exchange_open_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user
+    table:
+      name: exec_reports
+      schema: public
+    using:
+      foreign_key_constraint_on: viewer_id
+  type: create_object_relationship
+- args:
+    name: userByActorId
+    table:
+      name: exec_reports
+      schema: public
+    using:
+      foreign_key_constraint_on: actor_id
+  type: create_object_relationship
+- args:
+    name: report
+    table:
+      name: exec_reports
+      schema: public
+    using:
+      foreign_key_constraint_on: report_id
+  type: create_object_relationship
+- args:
+    name: outgoing_message
+    table:
+      name: fix_messages
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: fix_message_id
+        remote_table:
+          name: outgoing_messages
+          schema: public
+  type: create_object_relationship
+- args:
+    name: report
+    table:
+      name: fix_messages
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: fix_message_id
+        remote_table:
+          name: reports
+          schema: public
+  type: create_object_relationship
+- args:
+    name: exchange_marketdata_request
+    table:
+      name: fix_messages
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: request_message_id
+        remote_table:
+          name: exchange_marketdata_requests
+          schema: public
+  type: create_object_relationship
+- args:
+    name: exchange_open_orders
+    table:
+      name: fix_messages
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: current_message_id
+        table:
+          name: exchange_open_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: exchange_closed_orders
+    table:
+      name: fix_messages
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: current_message_id
+        table:
+          name: exchange_closed_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: fix_session
+    table:
+      name: fix_session_attributes
+      schema: public
+    using:
+      foreign_key_constraint_on: fix_session_id
+  type: create_object_relationship
+- args:
+    name: fix_session_attributes
+    table:
+      name: fix_sessions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: fix_session_id
+        table:
+          name: fix_session_attributes
+          schema: public
+  type: create_array_relationship
+- args:
+    name: report
+    table:
+      name: order_status
+      schema: public
+    using:
+      foreign_key_constraint_on: report_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: order_status
+      schema: public
+    using:
+      foreign_key_constraint_on: actor_id
+  type: create_object_relationship
+- args:
+    name: userByViewerId
+    table:
+      name: order_status
+      schema: public
+    using:
+      foreign_key_constraint_on: viewer_id
+  type: create_object_relationship
+- args:
+    name: fix_message
+    table:
+      name: outgoing_messages
+      schema: public
+    using:
+      foreign_key_constraint_on: fix_message_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: outgoing_messages
+      schema: public
+    using:
+      foreign_key_constraint_on: actor_id
+  type: create_object_relationship
+- args:
+    name: roles_permissions
+    table:
+      name: permissions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: permissions_id
+        table:
+          name: roles_permissions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: supervisor_permissions_permissions
+    table:
+      name: permissions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: permissions_id
+        table:
+          name: supervisor_permissions_permissions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: fix_message
+    table:
+      name: reports
+      schema: public
+    using:
+      foreign_key_constraint_on: fix_message_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: reports
+      schema: public
+    using:
+      foreign_key_constraint_on: actor_id
+  type: create_object_relationship
+- args:
+    name: userByViewerId
+    table:
+      name: reports
+      schema: public
+    using:
+      foreign_key_constraint_on: viewer_id
+  type: create_object_relationship
+- args:
+    name: order_status
+    table:
+      name: reports
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: report_id
+        remote_table:
+          name: order_status
+          schema: public
+  type: create_object_relationship
+- args:
+    name: exec_report
+    table:
+      name: reports
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: report_id
+        remote_table:
+          name: exec_reports
+          schema: public
+  type: create_object_relationship
+- args:
+    name: roles_permissions
+    table:
+      name: roles
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: roles_id
+        table:
+          name: roles_permissions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: roles_users
+    table:
+      name: roles
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: role_id
+        table:
+          name: roles_users
+          schema: public
+  type: create_array_relationship
+- args:
+    name: permission
+    table:
+      name: roles_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on: permissions_id
+  type: create_object_relationship
+- args:
+    name: role
+    table:
+      name: roles_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on: roles_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: roles_users
+      schema: public
+    using:
+      foreign_key_constraint_on: subjects_id
+  type: create_object_relationship
+- args:
+    name: role
+    table:
+      name: roles_users
+      schema: public
+    using:
+      foreign_key_constraint_on: role_id
+  type: create_object_relationship
+- args:
+    name: sixer_position
+    table:
+      name: sixer_lots
+      schema: public
+    using:
+      foreign_key_constraint_on: position_id
+  type: create_object_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_lots
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_trade
+    table:
+      name: sixer_lots
+      schema: public
+    using:
+      foreign_key_constraint_on: trade_id
+  type: create_object_relationship
+- args:
+    name: sixer_marketdata_element
+    table:
+      name: sixer_marketdata
+      schema: public
+    using:
+      foreign_key_constraint_on: ask_id
+  type: create_object_relationship
+- args:
+    name: sixerMarketdataElementByLastTradeId
+    table:
+      name: sixer_marketdata
+      schema: public
+    using:
+      foreign_key_constraint_on: last_trade_id
+  type: create_object_relationship
+- args:
+    name: sixerMarketdataElementByBidId
+    table:
+      name: sixer_marketdata
+      schema: public
+    using:
+      foreign_key_constraint_on: bid_id
+  type: create_object_relationship
+- args:
+    name: sixer_marketdata
+    table:
+      name: sixer_marketdata_elements
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: bid_id
+        table:
+          name: sixer_marketdata
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixerMarketdataByLastTradeId
+    table:
+      name: sixer_marketdata_elements
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: last_trade_id
+        table:
+          name: sixer_marketdata
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixerMarketdataByAskId
+    table:
+      name: sixer_marketdata_elements
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: ask_id
+        table:
+          name: sixer_marketdata
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_order_status
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_placed_order
+    table:
+      name: sixer_order_status
+      schema: public
+    using:
+      foreign_key_constraint_on: order_id
+  type: create_object_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_placed_orders
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_order_status
+    table:
+      name: sixer_placed_orders
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: order_id
+        remote_table:
+          name: sixer_order_status
+          schema: public
+  type: create_object_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_pnl
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_user_trades
+    table:
+      name: sixer_pnl
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: pnl_id
+        table:
+          name: sixer_user_trades
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_positions
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_lots
+    table:
+      name: sixer_positions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: position_id
+        table:
+          name: sixer_lots
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_user_trades
+    table:
+      name: sixer_trades
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: trade_id
+        table:
+          name: sixer_user_trades
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_lots
+    table:
+      name: sixer_trades
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: trade_id
+        table:
+          name: sixer_lots
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_user
+    table:
+      name: sixer_user_trades
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: sixer_trade
+    table:
+      name: sixer_user_trades
+      schema: public
+    using:
+      foreign_key_constraint_on: trade_id
+  type: create_object_relationship
+- args:
+    name: sixer_pnl
+    table:
+      name: sixer_user_trades
+      schema: public
+    using:
+      foreign_key_constraint_on: pnl_id
+  type: create_object_relationship
+- args:
+    name: sixer_user_trades
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_user_trades
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_order_statuses
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_order_status
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_pnls
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_pnl
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_positions
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_positions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_placed_orders
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_placed_orders
+          schema: public
+  type: create_array_relationship
+- args:
+    name: sixer_lots
+    table:
+      name: sixer_users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: sixer_lots
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user
+    table:
+      name: supervisor_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: supervisor_permissions_users
+    table:
+      name: supervisor_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: supervisor_permission_id
+        table:
+          name: supervisor_permissions_users
+          schema: public
+  type: create_array_relationship
+- args:
+    name: supervisor_permissions_permissions
+    table:
+      name: supervisor_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: supervisor_permission_id
+        table:
+          name: supervisor_permissions_permissions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: supervisor_permission
+    table:
+      name: supervisor_permissions_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on: supervisor_permission_id
+  type: create_object_relationship
+- args:
+    name: permission
+    table:
+      name: supervisor_permissions_permissions
+      schema: public
+    using:
+      foreign_key_constraint_on: permissions_id
+  type: create_object_relationship
+- args:
+    name: supervisor_permission
+    table:
+      name: supervisor_permissions_users
+      schema: public
+    using:
+      foreign_key_constraint_on: supervisor_permission_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: supervisor_permissions_users
+      schema: public
+    using:
+      foreign_key_constraint_on: subjects_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: user_attributes
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: exec_reports
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          name: exec_reports
+          schema: public
+  type: create_array_relationship
+- args:
+    name: supervisor_permissions
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: supervisor_permissions
+          schema: public
+  type: create_array_relationship
+- args:
+    name: execReportsByActorId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          name: exec_reports
+          schema: public
+  type: create_array_relationship
+- args:
+    name: reports
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          name: reports
+          schema: public
+  type: create_array_relationship
+- args:
+    name: roles_users
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: subjects_id
+        table:
+          name: roles_users
+          schema: public
+  type: create_array_relationship
+- args:
+    name: supervisor_permissions_users
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: subjects_id
+        table:
+          name: supervisor_permissions_users
+          schema: public
+  type: create_array_relationship
+- args:
+    name: order_statuses
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          name: order_status
+          schema: public
+  type: create_array_relationship
+- args:
+    name: outgoing_messages
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: actor_id
+        table:
+          name: outgoing_messages
+          schema: public
+  type: create_array_relationship
+- args:
+    name: reportsByViewerId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          name: reports
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_attributes
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_attributes
+          schema: public
+  type: create_array_relationship
+- args:
+    name: orderStatusesByViewerId
+    table:
+      name: users
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: viewer_id
+        table:
+          name: order_status
+          schema: public
+  type: create_array_relationship

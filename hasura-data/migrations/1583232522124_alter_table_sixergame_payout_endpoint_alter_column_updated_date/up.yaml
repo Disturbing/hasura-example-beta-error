@@ -1,0 +1,16 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payout_endpoint" ALTER COLUMN "updated_date" TYPE
+      timestamptz;
+  type: run_sql
+- args:
+    custom_column_names:
+      created_date: createdDate
+      merchant_id: merchantId
+      updated_date: updatedDate
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payout_endpoint
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

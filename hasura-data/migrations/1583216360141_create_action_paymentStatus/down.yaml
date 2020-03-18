@@ -1,0 +1,101 @@
+- args:
+    name: paymentStatus
+  type: drop_action
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: approveUserKYCResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeOrderID
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeToken
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeNotifyURL
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeClientID
+        type: String!
+      - arguments: null
+        description: null
+        name: orderNote
+        type: String!
+      name: cashfreeTokenResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: minimumStocks
+        type: Boolean!
+      - arguments: null
+        description: null
+        name: minimumGamesHold
+        type: Boolean!
+      name: checkClosePortfolioResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ClosePortfolioResponse
+      relationships: null
+    scalars: []
+  type: set_custom_types

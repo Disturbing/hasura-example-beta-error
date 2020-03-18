@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TABLE "sixergame"."real_wallet_transactions";
+  type: run_sql

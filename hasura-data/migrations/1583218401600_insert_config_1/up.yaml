@@ -1,0 +1,32 @@
+- args:
+    sql: INSERT INTO sixergame.configurations
+      (
+        key,
+        value
+      )
+      VALUES
+        ('free_market_signup_coins','10000'),
+        ('minimum_stocks_count','3'),
+        ('hold_for_games_count','4'),
+        ('min_add_money_amount','100'),
+        ('blocked_states','"Telangana", "Assam", "Sikkim", "Nagaland", "Odisha"'),
+        ('valid_currencies', '"INR", "USD", "CNY", "GBP", "AED", "AUD", "AZN", "BHD", "CAD", "CHF", "DKK", "EGP", "EUR", "HKD", "ILS", "INR", "JOD", "JPY", "KRW", "KWD", "MYR", "NOK", "NZD", "OMR", "QAR", "RUB", "SAR", "SEK", "SGD", "THB", "ZAR"'),
+        ('money_to_coin_ratio', '1'),
+        ('order_note','Add Coins to Sixer'),
+        ('trading_close_start_time', '22:30:00'),
+        ('trading_close_end_time', '23:30:00'),
+        ('trading_close_message', 'Trading is currently closed. It will reopen at 05:00.'),
+        ('freshdeskEndpoint','https://sixer.freshdesk.com/api/v2/tickets'),
+        ('freshdeskAPIKey','T1hNVkZHjTb4jMi9HyGu'),
+        ('freshdeskDefaultSubjectiOS','Mobile iOS'),
+        ('freshdeskDefaultSubjectAndroid','Mobile Android'),
+        ('freshdeskDefaultStatus','2'),
+        ('freshdeskDefaultPriority','1'),
+        ('monthly_add_coins_limit','5000'),
+        ('yearly_add_coins_limit', '50000'),
+        ('admin_users','8983524690|8128671002'),
+        ('cashfree_payment_service_charges','{"creditCard":1.9,"netBanking":1.7,"wallet":2.0,"upi":1.7,"debitCardAbove2000":1.1,"debitCardUpto2000":0.2}'),
+        ('cashfree_payout_service_charges','[{"upto":1000,"charge":2.5},{"upto":10000,"charge":5},{"upto":"","charge":10}]'),
+        ('gst',18),
+        ('show_ipl_filter','true')
+  type: run_sql

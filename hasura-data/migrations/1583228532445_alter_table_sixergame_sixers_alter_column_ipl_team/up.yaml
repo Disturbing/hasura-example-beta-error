@@ -1,0 +1,16 @@
+- args:
+    custom_column_names:
+      all_teams: allTeams
+      icc_stats: iccStats
+      ipl_stats: iplStats
+      ipl_team: iplTeam
+      is_active: isActive
+      last_updated_on: lastUpdatedOn
+      player_cricket_api_key: playerCricketApiKey
+      scheduled_matches: scheduledMatches
+    custom_root_fields: {}
+    table:
+      name: sixers
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

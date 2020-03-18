@@ -1,0 +1,20 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE INDEX bhs_matchkey ON datascience.batting_historical_stats (match_key);
+      CREATE INDEX bhs_format ON datascience.batting_historical_stats (format);
+      CREATE INDEX bhs_playerkey ON datascience.batting_historical_stats (player_key);
+      CREATE INDEX bhs_teamkey ON datascience.batting_historical_stats (team_key);
+      CREATE INDEX bhs_iso ON datascience.batting_historical_stats (iso);
+      CREATE INDEX bohs_matchkey ON datascience.bowling_historical_stats (match_key);
+      CREATE INDEX bohs_format ON datascience.bowling_historical_stats (format);
+      CREATE INDEX bohs_playerkey ON datascience.bowling_historical_stats (player_key);
+      CREATE INDEX bohs_teamkey ON datascience.bowling_historical_stats (team_key);
+      CREATE INDEX bohs_iso ON datascience.bowling_historical_stats (iso);
+      CREATE INDEX fhs_matchkey ON datascience.fielding_historical_stats (match_key);
+      CREATE INDEX fhs_format ON datascience.fielding_historical_stats (format);
+      CREATE INDEX fhs_playerkey ON datascience.fielding_historical_stats (player_key);
+      CREATE INDEX fhs_teamkey ON datascience.fielding_historical_stats (team_key);
+      CREATE INDEX fhs_iso ON datascience.fielding_historical_stats (iso);
+  type: run_sql

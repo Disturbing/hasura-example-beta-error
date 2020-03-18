@@ -1,0 +1,30 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "gst_service_charge"
+      TYPE double precision;
+  type: run_sql
+- args:
+    custom_column_names:
+      gst_service_charge: gstServiceCharge
+      order_id: orderId
+      payment_mode: paymentMode
+      phone_number: phoneNumber
+      platform_charge: platformCharge
+      reference_id: referenceId
+      total_service_charge: totalServiceCharge
+      transaction_date: transactionDate
+      user_id: userId
+      withdrawal_acknowledgement: withdrawalAcknowledgement
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "sixergame"."payment_gateway_transactions" rename column "gst_platform_charge"
+      to "gst_service_charge";
+  type: run_sql

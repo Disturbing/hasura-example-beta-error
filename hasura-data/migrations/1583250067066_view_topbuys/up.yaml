@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"top_buys\" AS \n SELECT c.sixer_id AS
+      symbol,\n    a.symbol AS metc_symbol,\n    b.price,\n    c.is_free\n   FROM
+      sixer_marketdata a,\n    sixer_marketdata_elements b,\n    sixergame.metc_player_assets
+      c\n  WHERE ((a.ask_id = b.id) AND (c.symbol = (a.symbol)::text));"
+  type: run_sql
+- args:
+    name: top_buys
+    schema: public
+  type: add_existing_table_or_view

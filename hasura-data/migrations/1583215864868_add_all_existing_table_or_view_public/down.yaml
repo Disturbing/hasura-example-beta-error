@@ -1,0 +1,220 @@
+- args:
+    table:
+      name: exchange_closed_orders
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_marketdata_content
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_marketdata_exchanges
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_marketdata_instruments
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_marketdata_requests
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_open_orders
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_orderbook_stats
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_orderbooks
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchange_trade_details
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exchanges
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: exec_reports
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: fix_messages
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: fix_session_attr_dscrptrs
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: fix_session_attributes
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: fix_sessions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: flyway_schema_history
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: handled_messages
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: id_repository
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: incoming_fix_messages
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: message_store_messages
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: message_store_sessions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: order_status
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: outgoing_messages
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: permissions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: reports
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: roles
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: roles_permissions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: roles_users
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_lots
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_managed_orders
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_marketdata
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_marketdata_elements
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_order_status
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_placed_orders
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_pnl
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_positions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_trades
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_user_trades
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: sixer_users
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: supervisor_permissions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: supervisor_permissions_permissions
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: supervisor_permissions_users
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: user_attributes
+      schema: public
+  type: untrack_table
+- args:
+    table:
+      name: users
+      schema: public
+  type: untrack_table

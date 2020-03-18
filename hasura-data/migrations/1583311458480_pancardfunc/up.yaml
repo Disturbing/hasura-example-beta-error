@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE OR REPLACE FUNCTION sixergame.pancard_base64(mm sixergame.users)
+       RETURNS text
+       LANGUAGE sql
+       STABLE
+      AS $function$
+        SELECT encode(mm.pan_card, 'base64')
+      $function$;
+  type: run_sql

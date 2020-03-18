@@ -1,0 +1,15 @@
+- args:
+    custom_column_names:
+      last_updated_on: lastUpdatedOn
+      match_end_date: matchEndDate
+      match_name: matchName
+      match_number: matchNumber
+      match_start_date_iso: matchStartDateIso
+      match_start_date_timestamp: matchStartDateTimestamp
+      player_key: playerKey
+    custom_root_fields: {}
+    table:
+      name: player_match_info
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

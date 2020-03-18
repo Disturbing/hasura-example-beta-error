@@ -1,0 +1,19 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."match_status" ALTER COLUMN "end_date" TYPE timestamptz;
+  type: run_sql
+- args:
+    custom_column_names:
+      end_date: endDate
+    custom_root_fields: {}
+    table:
+      name: match_status
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."match_status" ALTER COLUMN "end_date" DROP NOT NULL;
+  type: run_sql

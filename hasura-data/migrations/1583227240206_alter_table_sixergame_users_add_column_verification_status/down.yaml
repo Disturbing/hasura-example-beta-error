@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "sixergame"."users" DROP COLUMN "verification_status";
+  type: run_sql

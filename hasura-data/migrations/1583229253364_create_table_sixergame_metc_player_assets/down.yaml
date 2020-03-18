@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: DROP TABLE "sixergame"."metc_player_assets";
+  type: run_sql

@@ -1,0 +1,9 @@
+- args:
+    custom_column_names:
+      end_date: endDate
+    custom_root_fields: {}
+    table:
+      name: match_status
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

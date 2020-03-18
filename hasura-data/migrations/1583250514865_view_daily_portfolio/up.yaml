@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"dailyportfolio\" AS \n SELECT a.user_id,\n
+      \   a.date,\n    sum(((a.avg_cost * a.\"position\") + COALESCE(a.unrealised_gain,
+      (0)::numeric))) AS portfolio_value,\n    COALESCE(a.is_free, false) AS is_free\n
+      \  FROM sixergame.portfolio_value_daily a\n  GROUP BY a.user_id, a.date, a.is_free;"
+  type: run_sql
+- args:
+    name: dailyportfolio
+    schema: public
+  type: add_existing_table_or_view

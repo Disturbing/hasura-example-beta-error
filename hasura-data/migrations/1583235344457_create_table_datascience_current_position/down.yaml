@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "datascience"."current_position"
+  type: run_sql

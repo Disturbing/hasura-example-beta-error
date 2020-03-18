@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "datascience"."bowling_historical_stats"("id" serial
+      NOT NULL, "match_key" text, "format" text, "player_key" text, "team_key" text, "team_name" text, "selected" text, "playing_xi" text, "team_round" text, "opponent_round_key" text, "batting_order" text, "bowling_order" text, "innings" text, "winning_team" text, "wickets_taken" text, "runs_conceded" text, "overs" text, "balls_bowled" text, "economy_rate" text, "maidens_bowled" text, "keeper" text, "bowler" text, "batsman" text, "team_runs_total" text, "team_runs_overs" text, "opponent_runs_total" text, "opponent_runs_overs" text, "team_run_rate" text, "opponent_run_rate" text, "batting_order_id" text, "man_of_the_match" text, "venue" text, "strike_rate_impact" text, "economic_bowling" text, "pitch_impact" text, "team_strike_rate" text, "opponent_team_strike_rate" text, "strike_rate_ratio" text, "opposition_impact" text, "team_modified_run_rate" text, "opponent_modified_run_rate" text, "modified_run_rate_ratio" text, "contribution_to_the_result" text, "heavy_workload" text, "victoryr_loss" text, "starting_xi" text, "maiden_over_bonus" text, "four_wicket_bonus" text, "five_wicket_bonus" text, "innings_impact" text, "iso" text, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: bowling_historical_stats
+    schema: datascience
+  type: add_existing_table_or_view

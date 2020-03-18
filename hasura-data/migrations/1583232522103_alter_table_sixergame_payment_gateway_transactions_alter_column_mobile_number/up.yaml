@@ -1,0 +1,15 @@
+- args:
+    custom_column_names:
+      mobile_number: phoneNumber
+      order_id: orderId
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2
+- args:
+    sql: alter table "sixergame"."payment_gateway_transactions" rename column "mobile_number"
+      to "phone_number";
+  type: run_sql

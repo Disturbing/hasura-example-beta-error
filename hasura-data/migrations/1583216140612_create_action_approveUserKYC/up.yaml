@@ -1,0 +1,62 @@
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+      relationships: null
+    - description: null
+      fields:
+      - description: null
+        name: status
+        type: String!
+      - description: null
+        name: message
+        type: String!
+      name: approveUserKYCResponse
+    scalars: []
+  type: set_custom_types
+- args:
+    comment: null
+    definition:
+      arguments:
+      - description: null
+        name: isProductionBuild
+        type: Boolean!
+      - description: null
+        name: userId
+        type: String!
+      - description: null
+        name: user
+        type: String!
+      - description: null
+        name: password
+        type: String!
+      forward_client_headers: false
+      handler: http://{{WEB_API_HOST_NAME}}/wallet/approveUserKYC
+      headers: []
+      kind: synchronous
+      output_type: approveUserKYCResponse
+    name: approveUserKYC
+  type: create_action

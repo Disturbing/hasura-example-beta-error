@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE "sixergame"."cricket_api_webhook"("id" serial NOT NULL, "hook"
+      text, "data" jsonb, "timestamp" timestamptz NOT NULL DEFAULT now(), PRIMARY
+      KEY ("id") );
+  type: run_sql
+- args:
+    name: cricket_api_webhook
+    schema: sixergame
+  type: add_existing_table_or_view

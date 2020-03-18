@@ -1,0 +1,10 @@
+- args:
+    sql: CREATE TABLE "sixergame"."asset_price_hourly"("id" serial NOT NULL, "sixer_id"
+      text NOT NULL, "symbol" text NOT NULL, "is_free" boolean, "date" timestamp NOT NULL,
+      "buy_price" numeric NOT NULL, "created" timestamptz NOT NULL DEFAULT now(), PRIMARY
+      KEY ("id") );
+  type: run_sql
+- args:
+    name: asset_price_hourly
+    schema: sixergame
+  type: add_existing_table_or_view

@@ -1,0 +1,21 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "is_service_charge_settled"
+      TYPE boolean;
+  type: run_sql
+- args:
+    custom_column_names:
+      gst_service_charge: gstServiceCharge
+      order_id: orderId
+      payment_mode: paymentMode
+      phone_number: phoneNumber
+      reference_id: referenceId
+      service_charge: serviceCharge
+      total_service_charge: totalServiceCharge
+      transaction_date: transactionDate
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

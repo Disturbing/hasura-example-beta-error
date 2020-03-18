@@ -1,0 +1,11 @@
+- args:
+    comment: pan_card to image
+    definition:
+      function:
+        name: pancard_base64
+        schema: sixergame
+    name: pan_card_image
+    table:
+      name: users
+      schema: sixergame
+  type: add_computed_field

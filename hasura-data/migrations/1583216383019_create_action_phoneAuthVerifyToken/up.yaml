@@ -1,0 +1,139 @@
+- args:
+    enums: []
+    input_objects:
+    - description: null
+      fields:
+      - description: null
+        name: symbol
+        type: String!
+      - description: null
+        name: quantity
+        type: Int!
+      - description: null
+        name: price
+        type: Float!
+      name: OrderInput
+    objects:
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ordersCreateResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: approveUserKYCResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeOrderID
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeToken
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeNotifyURL
+        type: String!
+      - arguments: null
+        description: null
+        name: cashfreeClientID
+        type: String!
+      - arguments: null
+        description: null
+        name: orderNote
+        type: String!
+      name: cashfreeTokenResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: minimumStocks
+        type: Boolean!
+      - arguments: null
+        description: null
+        name: minimumGamesHold
+        type: Boolean!
+      name: checkClosePortfolioResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: status
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: ClosePortfolioResponse
+      relationships: null
+    - description: null
+      fields:
+      - arguments: null
+        description: null
+        name: paymentStatus
+        type: String!
+      - arguments: null
+        description: null
+        name: message
+        type: String!
+      name: paymentStatusResponse
+      relationships: null
+    - description: null
+      fields:
+      - description: null
+        name: jwtToken
+        type: String!
+      - description: null
+        name: userID
+        type: String!
+      name: PhoneAuthVerifyTokenResponse
+    scalars: []
+  type: set_custom_types
+- args:
+    comment: null
+    definition:
+      arguments:
+      - description: null
+        name: uid
+        type: String!
+      - description: null
+        name: countryCode
+        type: String!
+      - description: null
+        name: phoneNumber
+        type: String!
+      forward_client_headers: false
+      handler: http://{{WEB_API_HOST_NAME}}/login/verifyFirebaseToken
+      headers: []
+      kind: synchronous
+      output_type: PhoneAuthVerifyTokenResponse
+    name: phoneAuthVerifyToken
+  type: create_action

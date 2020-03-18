@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: alter table "sixergame"."player_match_info" drop constraint "player_match_info_player_key_match_key_key";
+  type: run_sql

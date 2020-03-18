@@ -1,0 +1,6 @@
+- args:
+    relationship: users
+    table:
+      name: sessions
+      schema: sixergame
+  type: drop_relationship

@@ -1,0 +1,12 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ADD COLUMN "is_service_charge_settled"
+      bool;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "is_service_charge_settled"
+      DROP NOT NULL;
+  type: run_sql

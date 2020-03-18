@@ -1,0 +1,14 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "sixergame"."sixers"("id" serial NOT NULL, "name" text NOT NULL,
+      "player_cricket_api_key" text NOT NULL, "keeper" boolean NOT NULL, "batsman"
+      boolean NOT NULL, "bowler" boolean NOT NULL, "batting_style" text, "bowling_style"
+      text, "icc_team" text, "ipl_team" text, "all_teams" text, "icc_stats" text,
+      "ipl_stats" text, "scheduled_matches" text, "is_active" boolean, "last_updated_on"
+      timestamptz NOT NULL, PRIMARY KEY ("id") );
+  type: run_sql
+- args:
+    name: sixers
+    schema: sixergame
+  type: add_existing_table_or_view

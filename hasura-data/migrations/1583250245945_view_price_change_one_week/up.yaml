@@ -1,0 +1,22 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"pricechangeoneweek\" AS \n SELECT a.symbol,\n
+      \   ( SELECT b.price\n           FROM sixer_marketdata_elements b\n          WHERE
+      (((b.symbol)::text = (a.symbol)::text) AND (b.md_timestamp = ( SELECT min(c.md_timestamp)
+      AS min\n                   FROM sixer_marketdata_elements c\n                  WHERE
+      (((a.symbol)::text = (c.symbol)::text) AND ((c.marketdata_type)::text = 'ASK'::text)
+      AND (c.md_timestamp > (CURRENT_TIMESTAMP - '7 days'::interval day))))))) AS
+      start_price,\n    ( SELECT b.price\n           FROM sixer_marketdata_elements
+      b\n          WHERE (((b.symbol)::text = (a.symbol)::text) AND (b.md_timestamp
+      = ( SELECT max(c.md_timestamp) AS max\n                   FROM sixer_marketdata_elements
+      c\n                  WHERE (((a.symbol)::text = (c.symbol)::text) AND ((c.marketdata_type)::text
+      = 'ASK'::text) AND (c.md_timestamp > (CURRENT_TIMESTAMP - '7 days'::interval
+      day))))))) AS end_price,\n    ( SELECT d.is_free\n           FROM sixergame.metc_player_assets
+      d\n          WHERE ((a.symbol)::text = d.symbol)) AS is_free\n   FROM sixer_marketdata_elements
+      a\n  GROUP BY a.symbol;"
+  type: run_sql
+- args:
+    name: pricechangeoneweek
+    schema: public
+  type: add_existing_table_or_view

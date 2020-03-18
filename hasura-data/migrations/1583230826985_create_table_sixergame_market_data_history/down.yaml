@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "sixergame"."market_data_history"
+  type: run_sql

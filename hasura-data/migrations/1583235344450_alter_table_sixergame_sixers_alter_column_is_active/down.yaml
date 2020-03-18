@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."sixers" ALTER COLUMN "is_active" TYPE boolean;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."sixers" ALTER COLUMN "is_active" DROP NOT NULL;
+  type: run_sql

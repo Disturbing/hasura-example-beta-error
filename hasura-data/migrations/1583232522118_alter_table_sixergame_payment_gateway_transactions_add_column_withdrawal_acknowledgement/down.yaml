@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" DROP COLUMN "withdrawal_acknowledgement";
+  type: run_sql

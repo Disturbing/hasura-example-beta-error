@@ -1,0 +1,13 @@
+- args:
+    sql: CREATE TABLE "sixergame"."portfolio_value_daily"("id" serial NOT NULL, "date"
+      date NOT NULL, "user_id" int8 NOT NULL, "position" numeric, "symbol"
+      text NOT NULL, "avg_cost" numeric NOT NULL, "pos_qty" numeric NOT NULL, "pos_px"
+      numeric NOT NULL, "realised_gain" numeric, "unrealised_gain" numeric, 
+      "security_type" text, "is_free" boolean, "created" time
+      NOT NULL DEFAULT now(), PRIMARY KEY ("id") ); COMMENT ON TABLE "sixergame"."portfolio_value_daily"
+      IS E'to store daily job portfolio value';
+  type: run_sql
+- args:
+    name: portfolio_value_daily
+    schema: sixergame
+  type: add_existing_table_or_view

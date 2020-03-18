@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "sixergame"."match_details" DROP COLUMN "result";
+  type: run_sql

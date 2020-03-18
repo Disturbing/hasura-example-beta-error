@@ -1,0 +1,14 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ALTER COLUMN "user_id"
+      TYPE int8;
+  type: run_sql
+- args:
+    custom_column_names:
+      order_id: orderId
+      user_id: userId
+    custom_root_fields: {}
+    table:
+      name: payment_gateway_transactions
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

@@ -1,0 +1,13 @@
+- args:
+    custom_column_names:
+      ask_price: askPrice
+      bid_price: bidPrice
+      max_outlay: maxOutlay
+      security_type: securityType
+      shares_outstanding: sharesOutstanding
+    custom_root_fields: {}
+    table:
+      name: market_data_history
+      schema: sixergame
+  type: set_table_custom_fields
+  version: 2

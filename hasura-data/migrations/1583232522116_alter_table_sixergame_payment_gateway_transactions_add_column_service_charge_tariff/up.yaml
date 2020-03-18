@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "sixergame"."payment_gateway_transactions" ADD COLUMN "service_charge_tariff"
+      float8 NULL;
+  type: run_sql
